@@ -1,44 +1,75 @@
-# Trading Bot - Personal Safe Setup
+# Trading Bot - Personal Flask App
 
-Personal-use trading bot dashboard based on the Roben Trading AI Bot project.
+Personal-use trading bot **web app** based on the Roben Trading AI Bot project.
+
+This repository is not a frontend/backend multi-folder app. The dashboard UI is embedded inside:
+
+```text
+roben_enhanced_trading_system.py
+```
+
+The app starts a local Flask server and opens through the browser.
+
+## App structure
+
+```text
+roben_enhanced_trading_system.py   # Main Flask app + API routes + embedded dashboard UI
+config.json                        # Trading and risk settings
+requirements.txt                   # Python dependencies
+.env.example                       # Local environment template
+INSTALLATION_FIX_GUIDE.md          # Install notes
+API_KEYS_INTEGRATION_GUIDE.pdf     # API key guide
+```
 
 ## Safety defaults
 
 - No `.env` file is committed.
-- All exchanges are disabled in `config.json` by default.
-- Auto trading and sniper mode are disabled by default.
-- The Flask app binds to `127.0.0.1` by default.
-- Random trading signals are disabled.
-- Fake exchange balances/prices are disabled.
+- Keep real API keys only in your local `.env`.
+- Use testnet/demo mode first.
+- Keep auto trading off until tested.
+- Start with very small order sizes only.
 
-## Setup
+## Setup on Windows
 
-```bash
+```powershell
 python -m venv .venv
-.venv\\Scripts\\activate  # Windows
+.venv\Scripts\activate
+python -m pip install --upgrade pip
 pip install -r requirements.txt
-pip install --upgrade pip
 copy .env.example .env
 python roben_enhanced_trading_system.py
 ```
 
-Open:
+Then open:
 
 ```text
 http://127.0.0.1:8082
 ```
 
-## Before using real funds
+If the app says it is running on `0.0.0.0`, still open it locally with:
 
-1. Use exchange testnet/demo mode first.
-2. Add your API keys only in local `.env`.
-3. Enable only one exchange at a time in `config.json`.
-4. Keep auto trading off until the strategy is tested.
-5. Start with very small order sizes.
+```text
+http://localhost:8082
+```
+
+## Main API routes
+
+```text
+/                    Dashboard UI
+/api/health          Health check
+/api/config          Current config
+/api/balance         Account balance
+/api/price/<symbol>  Symbol price
+/api/trade           Manual trade endpoint
+/api/auto-mode       Toggle auto mode
+/api/sniper-mode     Toggle sniper mode
+/api/stats           Dashboard stats
+```
+
+## TA-Lib note
+
+If `TA-Lib` fails to install on Windows, temporarily remove `TA-Lib` from `requirements.txt`, install the rest, and run again. The app has fallback behavior when TA-Lib is unavailable.
 
 ## Important
 
-This is not financial advice. Use at your own risk.
-If TA-Lib fails to install:
-- Use prebuilt wheels
-- Or remove TA-Lib temporarily and run without it
+This is for personal testing and learning only. It is not financial advice. Use at your own risk.
