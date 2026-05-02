@@ -15,10 +15,10 @@ Personal-use trading bot dashboard based on the Roben Trading AI Bot project.
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+.venv\\Scripts\\activate  # Windows
 pip install -r requirements.txt
-cp .env.example .env
-python app.py
+copy .env.example .env
+python roben_enhanced_trading_system.py
 ```
 
 Open:
