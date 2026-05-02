@@ -1,0 +1,33 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+
+# Logs and databases
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE / OS
+.idea/
+.vs/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Large local dependency archives/wheels
+*.whl
+*.zip
+ta-lib/
+*-wheels-main/
