@@ -39,3 +39,6 @@ http://127.0.0.1:8082
 ## Important
 
 This is not financial advice. Use at your own risk.
+If TA-Lib fails to install:
+- Use prebuilt wheels
+- Or remove TA-Lib temporarily and run without it
