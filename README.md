@@ -17,6 +17,7 @@ Personal-use trading bot dashboard based on the Roben Trading AI Bot project.
 python -m venv .venv
 .venv\\Scripts\\activate  # Windows
 pip install -r requirements.txt
+pip install --upgrade pip
 copy .env.example .env
 python roben_enhanced_trading_system.py
 ```
